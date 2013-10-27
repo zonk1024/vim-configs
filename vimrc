@@ -2,6 +2,10 @@ execute pathogen#infect()
 
 filetype plugin indent on
 
+color vividchalk
+
+syntax on
+
 let g:pymode_lint_checker = "pyflakes"
 let g:pymode_lint_write = 0
 let g:pymode_lint = 1
@@ -20,8 +24,6 @@ set backspace=indent,eol,start
 
 "nnoremap <Leader>V :color molokai<CR>
 
-syntax on
-color vividchalk
 
 "Start nerdtree on vim w/ args
 "autocmd vimenter * NERDTree
@@ -39,7 +41,6 @@ nnoremap <Leader># :tabclose<CR>
 nnoremap <Leader>q :bprevious<CR>
 nnoremap <Leader>w :bnext<CR>
 nnoremap <Leader>e :enew<CR>
-"nnoremap <Leader>e :bd<CR>
 nnoremap <Leader>E :bd<CR>
 "<Leader>r = run
 nnoremap <Leader>] :PyLint<CR>
@@ -47,6 +48,7 @@ nnoremap <Leader>] :PyLint<CR>
 nnoremap <Leader>a :NERDTreeToggle<CR>
 nnoremap <Leader>s :MRU<CR>
 nnoremap <Leader>d :e .<CR>
+nnoremap <Leader>D :bd!<CR>
 nnoremap <Leader>f :color unkiwii<CR>
 nnoremap <Leader>F :color railscasts<CR>
 
