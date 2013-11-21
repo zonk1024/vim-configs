@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# dependencies
+for pkg in 'curl' 'git' 'exuberant-ctags'; do
+    if ! dpkg -l | grep -q $pkg; then
+	sudo apt-get install -y $pkg 
+    fi
+done
+
 # project dir
 [ ! -d ~/projects ] && mkdir ~/projects
 
@@ -10,13 +17,11 @@ if [ ! -d ~/projects/vim_stuffs ]; then
 fi
 
 # kindly link vimrc
-if [ ! -L ~/.vimrc ]; then
-    if [ -f ~/.vimrc ]; then
-	[ -f ~/.vimrc.bak ] && echo 'Do some cleanup.' && exit 1
-	mv ~/.vimrc ~/.vimrc.bak
-    fi
-    ln -L ~/projects/vim_stuffs/vimrc ~/.vimrc
+if [ -f ~/.vimrc -a ! -L ~/.vimrc ]; then
+    [ -f ~/.vimrc.bak ] && echo 'Do some cleanup.' && exit 1
+    mv ~/.vimrc ~/.vimrc.bak
 fi
+[ ! -L ~/.vimrc ] && ln -s ~/projects/vim_stuffs/vimrc ~/.vimrc
 
 [ ! -d ~/vim ] && mkdir ~/vim
 
