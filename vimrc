@@ -22,12 +22,11 @@ set t_Co=256
 set hlsearch
 set backspace=indent,eol,start
 
-RainbowParenthesesActivate
-RainbowParenthesesLoadBraces
-RainbowParenthesesLoadChevrons
-RainbowParenthesesLoadRound
-RainbowParenthesesLoadSquare
-RainbowParenthesesLoadBraces
+autocmd VimEnter * RainbowParenthesesToggle
+autocmd Syntax * RainbowParenthesesLoadRound
+autocmd Syntax * RainbowParenthesesLoadSquare
+autocmd Syntax * RainbowParenthesesLoadBraces
+"autocmd Syntax * RainbowParenthesesLoadChevrons
 
 "Start nerdtree on vim w/ args
 "autocmd vimenter * NERDTree
