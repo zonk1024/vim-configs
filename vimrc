@@ -22,8 +22,12 @@ set t_Co=256
 set hlsearch
 set backspace=indent,eol,start
 
-"nnoremap <Leader>V :color molokai<CR>
-
+RainbowParenthesesLoadBraces
+RainbowParenthesesLoadChevrons
+RainbowParenthesesLoadRound
+RainbowParenthesesLoadSquare
+RainbowParenthesesLoadBraces
+RainbowParenthesesToggle
 
 "Start nerdtree on vim w/ args
 "autocmd vimenter * NERDTree
@@ -41,7 +45,9 @@ nnoremap <Leader># :tabclose<CR>
 nnoremap <Leader>q :bprevious<CR>
 nnoremap <Leader>w :bnext<CR>
 nnoremap <Leader>e :enew<CR>
-nnoremap <Leader>E :bd<CR>
+nnoremap <Leader>E :bd!<CR>
+"<Leader>t = tasklist
+nnoremap <Leader>T :Tagbar<CR>
 "<Leader>r = run
 nnoremap <Leader>] :PyLint<CR>
 
