@@ -60,6 +60,7 @@ nnoremap <Leader>F :color railscasts<CR>
 nnoremap <Leader>g :Gstatus<CR>
 nnoremap <Leader>G :Gcommit<CR>
 
+nnoremap <Leader>z :write !diff % -<CR>
 nnoremap <Leader>x :set cursorline! cursorcolumn!<CR>
 nnoremap <Leader>c :let @/ = ""<CR>
 nnoremap <Leader>C :SCROLLCOLOR<CR>
