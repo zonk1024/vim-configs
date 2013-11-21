@@ -1,10 +1,28 @@
 #!/bin/bash
 
-[ ! -f "~/.vimrc" ] && curl -o ~/.vimrc https://raw.github.com/zonk1024/vim_stuffs/master/vimrc
+# project dir
+[ ! -d "~/projects" ] && mkdir ~/projects
 
+# teh repo
+if [ ! -d "~/projects/vim_stuffs" ]; then
+    cd ~/projects
+    git clone git@github.com:zonk1024/vim_stuffs.git
+fi
+
+# kindly link vimrc
+if [ ! -L "~/.vimrc" ]; then
+    if [ -f "~/.vimrc" ]; then
+	[ -f "~/.vimrc.bak" ] && echo "Do some cleanup." && exit 1
+	mv ~/.vimrc ~/.vimrc.bak
+    fi
+    ln -L ~/projects/vim_stuffs/vimrc ~/.vimrc
+fi
+
+# Pathogen
 [ ! -d "~/.vim/autoload" ] && mkdir -p ~/.vim/autoload
 [ ! -f "~/.vim/autoload/pathogen.vim" ] && curl -Sso ~/.vim/autoload/pathogen.vim https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
 
+# Plugins from github
 [ ! -d "~/.vim/bundle" ]   && mkdir -p ~/.vim/bundle
 cd ~/.vim/bundle
 [ ! -d "TaskList.vim" ]            && git clone git@github.com:vim-scripts/TaskList.vim.git

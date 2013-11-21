@@ -22,12 +22,12 @@ set t_Co=256
 set hlsearch
 set backspace=indent,eol,start
 
+RainbowParenthesesActivate
 RainbowParenthesesLoadBraces
 RainbowParenthesesLoadChevrons
 RainbowParenthesesLoadRound
 RainbowParenthesesLoadSquare
 RainbowParenthesesLoadBraces
-RainbowParenthesesToggle
 
 "Start nerdtree on vim w/ args
 "autocmd vimenter * NERDTree
@@ -45,10 +45,11 @@ nnoremap <Leader># :tabclose<CR>
 nnoremap <Leader>q :bprevious<CR>
 nnoremap <Leader>w :bnext<CR>
 nnoremap <Leader>e :enew<CR>
-nnoremap <Leader>E :bd!<CR>
+nnoremap <Leader>E :bd<CR>
 "<Leader>t = tasklist
 nnoremap <Leader>T :Tagbar<CR>
 "<Leader>r = run
+nnoremap <Leader>[ :RainbowParenthesesToggle<CR>
 nnoremap <Leader>] :PyLint<CR>
 
 nnoremap <Leader>a :NERDTreeToggle<CR>
@@ -57,6 +58,8 @@ nnoremap <Leader>d :e .<CR>
 nnoremap <Leader>D :bd!<CR>
 nnoremap <Leader>f :color unkiwii<CR>
 nnoremap <Leader>F :color railscasts<CR>
+nnoremap <Leader>g :Gstatus<CR>
+nnoremap <Leader>G :Gcommit<CR>
 
 nnoremap <Leader>x :set cursorline! cursorcolumn!<CR>
 nnoremap <Leader>c :let @/ = ""<CR>
