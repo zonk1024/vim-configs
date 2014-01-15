@@ -32,7 +32,6 @@ fi
 # Plugins from github
 [ ! -d ~/.vim/bundle ] && mkdir -p ~/.vim/bundle
 cd ~/.vim/bundle
-[ ! -d TaskList.vim ]            && git clone git@github.com:vim-scripts/TaskList.vim.git
 [ ! -d ctrlp.vim ]               && git clone git@github.com:kien/ctrlp.vim.git
 [ ! -d gundo.vim ]               && git clone git@github.com:sjl/gundo.vim.git
 [ ! -d minibufexpl.vim ]         && git clone git@github.com:fholgado/minibufexpl.vim.git
@@ -42,6 +41,7 @@ cd ~/.vim/bundle
 [ ! -d rainbow_parentheses.vim ] && git clone git@github.com:kien/rainbow_parentheses.vim.git
 [ ! -d supertab ]                && git clone git@github.com:ervandew/supertab.git
 [ ! -d tagbar ]                  && git clone git@github.com:majutsushi/tagbar.git
+[ ! -d TaskList.vim ]            && git clone git@github.com:vim-scripts/TaskList.vim.git
 [ ! -d vim-afterimage ]          && git clone git@github.com:tpope/vim-afterimage.git
 [ ! -d vim-commentary ]          && git clone git@github.com:tpope/vim-commentary.git
 [ ! -d vim-easymotion ]          && git clone git@github.com:Lokaltog/vim-easymotion.git
@@ -50,10 +50,12 @@ cd ~/.vim/bundle
 [ ! -d vim-markdown ]            && git clone git@github.com:tpope/vim-markdown.git
 [ ! -d vim-matchit ]             && git clone git@github.com:tsaleh/vim-matchit.git
 [ ! -d vim-pastie ]              && git clone git@github.com:tpope/vim-pastie.git
+[ ! -d vim-powerline ]           && git clone git@github.com:Lokaltog/vim-powerline.git
 [ ! -d vim-repeat ]              && git clone git@github.com:tpope/vim-repeat.git
 [ ! -d vim-sensible ]            && git clone git@github.com:tpope/vim-sensible.git
 [ ! -d vim-sleuth ]              && git clone git@github.com:tpope/vim-sleuth.git
 [ ! -d vim-speeddating ]         && git clone git@github.com:tpope/vim-speeddating.git
+[ ! -d vim-stylus ]              && git clone git@github.com:Lokaltog/vim-stylus.git
 [ ! -d vim-surround ]            && git clone git@github.com:tpope/vim-surround.git
 
 # Colors! :D
@@ -62,3 +64,5 @@ if [ ! -f plugin/color_sample_pack.vim ]; then
     curl -o ColorSamplerPack.zip 'http://www.vim.org/scripts/download_script.php?src_id=18915'
     unzip ColorSamplerPack.zip
 fi
+cd ~/.vim/colors
+wget 'https://raw2.github.com/Lokaltog/vim-distinguished/develop/colors/distinguished.vim'
