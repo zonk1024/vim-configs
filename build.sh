@@ -27,7 +27,7 @@ fi
 
 # Pathogen
 [ ! -d ~/.vim/autoload ] && mkdir -p ~/.vim/autoload
-[ ! -f ~/.vim/autoload/pathogen.vim ] && curl -Sso ~/.vim/autoload/pathogen.vim https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
+[ ! -f ~/.vim/autoload/pathogen.vim ] && wget -O ~/.vim/autoload/pathogen.vim https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
 
 # Plugins from github
 [ ! -d ~/.vim/bundle ] && mkdir -p ~/.vim/bundle
@@ -64,5 +64,9 @@ if [ ! -f plugin/color_sample_pack.vim ]; then
     curl -o ColorSamplerPack.zip 'http://www.vim.org/scripts/download_script.php?src_id=18915'
     unzip ColorSamplerPack.zip
 fi
+
+[ ! -d ~/.vim/colors ] && mkdir -p ~/.vim/colors
 cd ~/.vim/colors
+
 wget 'https://raw2.github.com/Lokaltog/vim-distinguished/develop/colors/distinguished.vim'
+wget 'https://raw2.github.com/tpope/vim-vividchalk/master/colors/vividchalk.vim'
