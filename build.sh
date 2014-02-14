@@ -1,5 +1,17 @@
 #!/bin/bash
 
+# update mode
+if [ "$1" == "-u" ]; then
+    cd ~/.vim/
+    for dir in $(find . -name ".git" -type d); do
+	cd $(dirname $dir) && git pull &
+    done
+    wait
+    exit 0
+fi
+
+#for dir in $(for d in $(find . -name ".git" -type d); do dirname $d; done); do cd $dir && git pull & done
+
 # dependencies
 for pkg in 'curl' 'git' 'exuberant-ctags'; do
     if ! dpkg -l | grep -q $pkg; then
