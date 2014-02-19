@@ -18,7 +18,8 @@ let g:pymode_lint_signs = 0
 let g:pymode_lint_minheight = 5
 let g:pymode_lint_maxheight = 12
 " seriously... on by default?
-let g:pymode_lint_write = 0
+"let g:pymode_lint_write = 0
+"execute PymodeLintToggle
 
 " ignore stuffs
 set wildignore+=*.pyc,*.so,*.swp,*.swo
