@@ -19,6 +19,9 @@ let g:pymode_lint_minheight = 5
 let g:pymode_lint_maxheight = 12
 " seriously... on by default?
 "let g:pymode_lint_write = 0
+" seriously... renamed so it's back? uggg
+let g:pymode_lint_on_write = 0
+" see... a failed attempt... hence the uggg
 "execute PymodeLintToggle
 
 " ignore stuffs
@@ -106,7 +109,8 @@ nnoremap <Leader>T :Tagbar<CR>
 nnoremap <Leader>p :CtrlPTag<CR>
 nnoremap <Leader>P :CtrlPMixed<CR>
 nnoremap <Leader>[ :RainbowParenthesesToggle<CR>
-nnoremap <Leader>] :PyLint<CR>
+nnoremap <Leader>] :PymodeLint<CR>
+nnoremap <Leader>} :PymodeLintAuto<CR>
 
 nnoremap <Leader>a :NERDTreeToggle<CR>
 nnoremap <Leader>s :MRU<CR>
