@@ -104,7 +104,7 @@ nnoremap <Leader>w :bnext<CR>
 nnoremap <Leader>e :enew<CR>
 nnoremap <Leader>E :Bclose<CR>
 " <Leader>t = tasklist
-nnoremap <Leader>T :Tagbar<CR>
+nnoremap <Leader>T :TagbarToggle<CR>
 " <Leader>r = run
 nnoremap <Leader>p :CtrlPTag<CR>
 nnoremap <Leader>P :CtrlPMixed<CR>
