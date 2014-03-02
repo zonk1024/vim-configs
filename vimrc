@@ -106,6 +106,7 @@ nnoremap <Leader>E :Bclose<CR>
 " <Leader>t = tasklist
 nnoremap <Leader>T :TagbarToggle<CR>
 " <Leader>r = run
+nnoremap <Leader>R :edit!<CR>
 nnoremap <Leader>p :CtrlPTag<CR>
 nnoremap <Leader>P :CtrlPMixed<CR>
 nnoremap <Leader>[ :RainbowParenthesesToggle<CR>
