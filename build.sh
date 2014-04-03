@@ -60,6 +60,7 @@ cd ~/.vim/bundle
 [ ! -d vim-easymotion ]          && git clone git@github.com:Lokaltog/vim-easymotion.git
 [ ! -d vim-eunuch ]              && git clone git@github.com:tpope/vim-eunuch.git
 [ ! -d vim-fugitive ]            && git clone git@github.com:tpope/vim-fugitive.git
+[ ! -d vim-gitgutter ]           && git clone git@github.com:airblade/vim-gitgutter.git
 [ ! -d vim-markdown ]            && git clone git@github.com:tpope/vim-markdown.git
 [ ! -d vim-matchit ]             && git clone git@github.com:tsaleh/vim-matchit.git
 [ ! -d vim-pastie ]              && git clone git@github.com:tpope/vim-pastie.git
