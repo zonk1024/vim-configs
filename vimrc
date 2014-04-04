@@ -27,13 +27,13 @@ set wildignore+=*.pyc,*.so,*.swp,*.swo
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 let NERDTreeIgnore = ['\.pyc$','\.swp$','\.swo$']
 
-" gitgutter bar by default
-let g:gitgutter_highlight_lines = 0
-let g:gitgutter_sign_column_always = 1
-let g:gitgutter_sign_added = '++'
-let g:gitgutter_sign_modified = '@@'
-let g:gitgutter_sign_removed = '--'
-let g:gitgutter_sign_modified_removed = '@-'
+"" gitgutter bar by default
+"let g:gitgutter_highlight_lines = 0
+"let g:gitgutter_sign_column_always = 1
+"let g:gitgutter_sign_added = '++'
+"let g:gitgutter_sign_modified = '@@'
+"let g:gitgutter_sign_removed = '--'
+"let g:gitgutter_sign_modified_removed = '@-'
 augroup DeGraySigns
     autocmd!
     autocmd VimEnter * highlight clear SignColumn
@@ -115,7 +115,8 @@ augroup END
 function! CopyToggle() range
     " this dude just toggles numbered lines and the SignColumn
     set number!
-    GitGutterToggle
+    "GitGutterToggle
+    SignifyToggle
 endfunction
 
 function! PasteReady() range

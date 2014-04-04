@@ -60,13 +60,14 @@ cd ~/.vim/bundle
 [ ! -d vim-easymotion ]          && git clone git@github.com:Lokaltog/vim-easymotion.git
 [ ! -d vim-eunuch ]              && git clone git@github.com:tpope/vim-eunuch.git
 [ ! -d vim-fugitive ]            && git clone git@github.com:tpope/vim-fugitive.git
-[ ! -d vim-gitgutter ]           && git clone git@github.com:airblade/vim-gitgutter.git
+#[ ! -d vim-gitgutter ]          && git clone git@github.com:airblade/vim-gitgutter.git # -> signify
 [ ! -d vim-markdown ]            && git clone git@github.com:tpope/vim-markdown.git
 [ ! -d vim-matchit ]             && git clone git@github.com:tsaleh/vim-matchit.git
 [ ! -d vim-pastie ]              && git clone git@github.com:tpope/vim-pastie.git
 [ ! -d vim-powerline ]           && git clone git@github.com:Lokaltog/vim-powerline.git
 [ ! -d vim-repeat ]              && git clone git@github.com:tpope/vim-repeat.git
 [ ! -d vim-sensible ]            && git clone git@github.com:tpope/vim-sensible.git
+[ ! -d vim-signify ]             && git clone git@github.com:mhinz/vim-signify.git
 [ ! -d vim-sleuth ]              && git clone git@github.com:tpope/vim-sleuth.git
 [ ! -d vim-speeddating ]         && git clone git@github.com:tpope/vim-speeddating.git
 [ ! -d vim-stylus ]              && git clone https://github.com/wavded/vim-stylus.git
