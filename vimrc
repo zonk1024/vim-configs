@@ -21,13 +21,24 @@ let g:pymode_lint_maxheight = 12
 "let g:pymode_lint_write = 0
 " seriously... renamed so it's back? uggg
 let g:pymode_lint_on_write = 0
-" see... a failed attempt... hence the uggg
-"execute PymodeLintToggle
 
 " ignore stuffs
 set wildignore+=*.pyc,*.so,*.swp,*.swo
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 let NERDTreeIgnore = ['\.pyc$','\.swp$','\.swo$']
+
+" gitgutter bar by default
+let g:gitgutter_highlight_lines = 0
+let g:gitgutter_sign_column_always = 1
+let g:gitgutter_sign_added = '++'
+let g:gitgutter_sign_modified = '@@'
+let g:gitgutter_sign_removed = '--'
+let g:gitgutter_sign_modified_removed = '@-'
+augroup DeGraySigns
+    autocmd!
+    "autocmd VimEnter * highlight clear SignColumn
+    autocmd VimEnter * :highlight SignColumn ctermbg=Blue
+augroup END
  
 "remember more!
 set history=1000
@@ -75,13 +86,17 @@ set linebreak
 " don't break my code, please
 set textwidth=0
 set wrapmargin=0
+set foldcolumn=0
 
 " pretty!
-autocmd VimEnter * RainbowParenthesesToggle
-autocmd Syntax * RainbowParenthesesLoadRound
-autocmd Syntax * RainbowParenthesesLoadSquare
-autocmd Syntax * RainbowParenthesesLoadBraces
-autocmd Syntax * RainbowParenthesesLoadChevrons
+augroup RainbowPoop
+    autocmd!
+    autocmd VimEnter * RainbowParenthesesToggle
+    autocmd Syntax * RainbowParenthesesLoadRound
+    autocmd Syntax * RainbowParenthesesLoadSquare
+    autocmd Syntax * RainbowParenthesesLoadBraces
+    autocmd Syntax * RainbowParenthesesLoadChevrons
+augroup END
 
 " Start nerdtree on vim w/ args
 "autocmd vimenter * NERDTree
@@ -91,7 +106,36 @@ autocmd Syntax * RainbowParenthesesLoadChevrons
 let NERDTreeQuitOnOpen = 1
 
 " Kills mini-window (f(n) def) from auto-complete
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+augroup EffOffWinder
+    autocmd!
+    autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+augroup END
+
+" some custom functions for copypasta all quick like... emhmm
+function! CopyToggle() range
+    " this dude just toggles numbered lines and the SignColumn
+    set number!
+    GitGutterToggle
+endfunction
+
+function! PasteReady() range
+    " this dude turns on paste mode, puts you in insert mode
+    " then autocmds the cleanup
+    set paste
+    startinsert
+    augroup PasteHelper
+        autocmd InsertLeave * call PasteUnready()
+    augroup END
+endfunction
+
+function! PasteUnready() range
+    " this dude does the cleanup by turning off paste mode
+    " and unbinding itself from InsertLeave
+    set paste!
+    augroup PasteHelper
+        autocmd!
+    augroup END
+endfunction
 
 " Ordered by keyboard layout
 nnoremap <Leader>1 :tabp<CR>
@@ -128,10 +172,10 @@ nnoremap <Leader>z :write !diff % -<CR>
 nnoremap <Leader>x :set cursorline! cursorcolumn!<CR>
 nnoremap <Leader>c :let @/ = ""<CR>
 nnoremap <Leader>C :SCROLLCOLOR<CR>
-nnoremap <Leader>v :set paste!<CR>
+nnoremap <Leader>v :call PasteReady()<CR>
 nnoremap <Leader>V :so ~/.vimrc<CR>
 " <Leader>b = breakpoint
-nnoremap <Leader>N :set number!<CR>
+nnoremap <Leader>N :call CopyToggle()<CR>
 
 " save my right pinky
 inoremap  <Up>     <NOP>
