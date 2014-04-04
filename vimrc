@@ -36,8 +36,8 @@ let g:gitgutter_sign_removed = '--'
 let g:gitgutter_sign_modified_removed = '@-'
 augroup DeGraySigns
     autocmd!
-    "autocmd VimEnter * highlight clear SignColumn
-    autocmd VimEnter * :highlight SignColumn ctermbg=Blue
+    autocmd VimEnter * highlight clear SignColumn
+    "autocmd VimEnter * :highlight SignColumn ctermbg=Blue
 augroup END
  
 "remember more!
