@@ -71,6 +71,7 @@ cd ~/.vim/bundle
 [ ! -d vim-speeddating ]         && git clone git@github.com:tpope/vim-speeddating.git
 [ ! -d vim-stylus ]              && git clone https://github.com/wavded/vim-stylus.git
 [ ! -d vim-surround ]            && git clone git@github.com:tpope/vim-surround.git
+[ ! -d vim-unimpared ]           && git clone git@github.com:tpope/vim-unimpaired.git
 
 # Colors! :D
 cd ~/.vim

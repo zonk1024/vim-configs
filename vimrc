@@ -23,9 +23,11 @@ let g:pymode_lint_maxheight = 12
 let g:pymode_lint_on_write = 0
 
 " ignore stuffs
-set wildignore+=*.pyc,*.so,*.swp,*.swo
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
-let NERDTreeIgnore = ['\.pyc$','\.swp$','\.swo$']
+" i'll ditch GAE after this project
+set wildignore+=.git,.hg,.svn,*.pyc,*.so,*.swp,*.swo,google_appengine
+" CtrlP is nice enough to honor wildignore... unlike some plugins. >:|
+"let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let NERDTreeIgnore = ['\.pyc$','\.swp$','\.swo$','google_appengine']
 
 " gitgutter bar by default
 let g:gitgutter_highlight_lines = 0
