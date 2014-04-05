@@ -41,6 +41,12 @@ augroup DeGraySigns
     autocmd VimEnter * highlight clear SignColumn
     "autocmd VimEnter * :highlight SignColumn ctermbg=Blue
 augroup END
+
+let g:tagbar_width = 38
+augroup TagbarEnter
+    autocmd!
+    autocmd VimEnter * nested :call tagbar#autoopen(1)
+augroup END
  
 "remember more!
 set history=1000
