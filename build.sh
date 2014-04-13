@@ -13,11 +13,13 @@ fi
 #for dir in $(for d in $(find . -name ".git" -type d); do dirname $d; done); do cd $dir && git pull & done
 
 # dependencies
-for pkg in 'curl' 'git' 'exuberant-ctags'; do
-    if ! dpkg -l | grep -q $pkg; then
-	sudo apt-get install -y $pkg 
-    fi
-done
+if ! uname -a | grep -q ^Darwin; then
+    for pkg in 'curl' 'git' 'exuberant-ctags'; do
+	if ! dpkg -l | grep -q $pkg; then
+	    sudo apt-get install -y $pkg 
+	fi
+    done
+fi
 
 # project dir
 [ ! -d ~/projects ] && mkdir ~/projects
@@ -48,6 +50,7 @@ cd ~/.vim/bundle
 [ ! -d bclose.vim ]              && git clone https://github.com/rbgrouleff/bclose.vim.git
 [ ! -d ctrlp.vim ]               && git clone https://github.com/kien/ctrlp.vim.git
 [ ! -d gundo.vim ]               && git clone https://github.com/sjl/gundo.vim.git
+[ ! -d matchit ]                 && git clone https://github.com/tmhedberg/matchit.git
 [ ! -d minibufexpl.vim ]         && git clone https://github.com/fholgado/minibufexpl.vim.git
 [ ! -d mru.vim ]                 && git clone https://github.com/vim-scripts/mru.vim.git
 [ ! -d nerdtree ]                && git clone https://github.com/scrooloose/nerdtree.git
@@ -62,7 +65,6 @@ cd ~/.vim/bundle
 [ ! -d vim-fugitive ]            && git clone https://github.com/tpope/vim-fugitive.git
 [ ! -d vim-gitgutter ]           && git clone https://github.com/airblade/vim-gitgutter.git
 [ ! -d vim-markdown ]            && git clone https://github.com/tpope/vim-markdown.git
-[ ! -d vim-matchit ]             && git clone https://github.com/tsaleh/vim-matchit.git
 [ ! -d vim-pastie ]              && git clone https://github.com/tpope/vim-pastie.git
 [ ! -d vim-powerline ]           && git clone https://github.com/Lokaltog/vim-powerline.git
 [ ! -d vim-repeat ]              && git clone https://github.com/tpope/vim-repeat.git
@@ -71,7 +73,7 @@ cd ~/.vim/bundle
 [ ! -d vim-speeddating ]         && git clone https://github.com/tpope/vim-speeddating.git
 [ ! -d vim-stylus ]              && git clone https://github.com/wavded/vim-stylus.git
 [ ! -d vim-surround ]            && git clone https://github.com/tpope/vim-surround.git
-[ ! -d vim-unimpared ]           && git clone https://github.com/tpope/vim-unimpaired.git
+[ ! -d vim-unimpaired ]          && git clone https://github.com/tpope/vim-unimpaired.git
 
 # Colors! :D
 cd ~/.vim
