@@ -76,6 +76,7 @@ cd ~/.vim/bundle
 [ ! -d vim-stylus ]              && git clone https://github.com/wavded/vim-stylus.git
 [ ! -d vim-surround ]            && git clone https://github.com/tpope/vim-surround.git
 [ ! -d vim-unimpaired ]          && git clone https://github.com/tpope/vim-unimpaired.git
+[ ! -d distinguished.vim ]       && git clone https://github.com/Lokaltog/vim-distinguished.git
 
 # Colors! :D
 cd ~/.vim
@@ -87,5 +88,4 @@ fi
 [ ! -d ~/.vim/colors ] && mkdir -p ~/.vim/colors
 cd ~/.vim/colors
 
-[ ! -f distinguished.vim ] && wget 'https://raw2.github.com/Lokaltog/vim-distinguished/develop/colors/distinguished.vim'
 [ ! -f vividchalk.vim ] && wget 'https://raw2.github.com/tpope/vim-vividchalk/master/colors/vividchalk.vim'
