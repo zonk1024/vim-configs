@@ -47,6 +47,7 @@ fi
 [ ! -d ~/.vim/bundle ] && mkdir -p ~/.vim/bundle
 cd ~/.vim/bundle
 [ ! -d TaskList.vim ]            && git clone https://github.com/vim-scripts/TaskList.vim.git
+[ ! -d badwolf ]             && git clone https://github.com/sjl/badwolf.git
 [ ! -d bclose.vim ]              && git clone https://github.com/rbgrouleff/bclose.vim.git
 [ ! -d ctrlp.vim ]               && git clone https://github.com/kien/ctrlp.vim.git
 [ ! -d gundo.vim ]               && git clone https://github.com/sjl/gundo.vim.git
@@ -59,6 +60,7 @@ cd ~/.vim/bundle
 [ ! -d supertab ]                && git clone https://github.com/ervandew/supertab.git
 [ ! -d tagbar ]                  && git clone https://github.com/majutsushi/tagbar.git
 [ ! -d vim-afterimage ]          && git clone https://github.com/tpope/vim-afterimage.git
+[ ! -d vim-arduino ]             && git clone https://github.com/tclem/vim-arduino.git
 [ ! -d vim-commentary ]          && git clone https://github.com/tpope/vim-commentary.git
 [ ! -d vim-easymotion ]          && git clone https://github.com/Lokaltog/vim-easymotion.git
 [ ! -d vim-eunuch ]              && git clone https://github.com/tpope/vim-eunuch.git
@@ -86,4 +88,4 @@ fi
 cd ~/.vim/colors
 
 [ ! -f distinguished.vim ] && wget 'https://raw2.github.com/Lokaltog/vim-distinguished/develop/colors/distinguished.vim'
-[ ! -f vividchalk.vim ] && wget 'https://raw2.github.com/tpope/vim-vividchalk/master/colors/vividchalk.vim' -O vividchalk.vim
+[ ! -f vividchalk.vim ] && wget 'https://raw2.github.com/tpope/vim-vividchalk/master/colors/vividchalk.vim'
