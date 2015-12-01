@@ -47,7 +47,7 @@ fi
 [ ! -d ~/.vim/bundle ] && mkdir -p ~/.vim/bundle
 cd ~/.vim/bundle
 [ ! -d TaskList.vim ]            && git clone https://github.com/vim-scripts/TaskList.vim.git
-[ ! -d badwolf ]             && git clone https://github.com/sjl/badwolf.git
+[ ! -d badwolf ]                 && git clone https://github.com/sjl/badwolf.git
 [ ! -d bclose.vim ]              && git clone https://github.com/rbgrouleff/bclose.vim.git
 [ ! -d ctrlp.vim ]               && git clone https://github.com/kien/ctrlp.vim.git
 [ ! -d gundo.vim ]               && git clone https://github.com/sjl/gundo.vim.git
@@ -76,7 +76,7 @@ cd ~/.vim/bundle
 [ ! -d vim-stylus ]              && git clone https://github.com/wavded/vim-stylus.git
 [ ! -d vim-surround ]            && git clone https://github.com/tpope/vim-surround.git
 [ ! -d vim-unimpaired ]          && git clone https://github.com/tpope/vim-unimpaired.git
-[ ! -d distinguished.vim ]       && git clone https://github.com/Lokaltog/vim-distinguished.git
+#[ ! -d vim-distinguished.vim ]   && git clone https://github.com/Lokaltog/vim-distinguished.git
 
 # Colors! :D
 cd ~/.vim
