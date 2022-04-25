@@ -4,8 +4,8 @@ execute pathogen#infect()
 " plugin based indenting
 filetype plugin indent on
 
-" thanks again, Mr. Pope
-color vividchalk
+" my current favorite
+color badwolf
 
 " syntax highlighting
 syntax on
