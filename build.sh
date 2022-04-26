@@ -2,7 +2,7 @@
 
 
 REPO_DIR="${REPO_DIR:-code}"
-VIMRC_LINK_TARGET="${REPO_DIR}/vim_stuffs/vimrc"
+VIMRC_LINK_TARGET="${REPO_DIR}/vim-configs/vimrc"
 
 # let's not make people hate us
 if [ -f ~/.vimrc -a ! -L ~/.vimrc ]; then
@@ -19,10 +19,10 @@ if [ "$1" == "-h" ]; then
   echo "      Normal mode: Creates ~/${REPO_DIR} (can override with \$REPO_DIR env var), clones"
   echo "                   the repo this lives in as well as ~/.vim and the ~/.vimrc symlink,"
   echo "                   then clones the dependant repos and colorpack, then finally backs"
-  echo "                   up and links your .vimrc to ~/${REPO_DIR}/vim_stuffs/vimrc"
+  echo "                   up and links your .vimrc to ~/${REPO_DIR}/vim-configs/vimrc"
   echo "  -u  Update mode: Pulls in each repo it finds under ~/.vim, then runs as normal"
   echo "  -c  Clean mode : Removes ~/.vim and the ~/.vimrc symlink, but not the"
-  echo "                   ~/${REPO_DIR}/vim_stuffs repo"
+  echo "                   ~/${REPO_DIR}/vim-configs repo"
   echo "  -h  Help mode  : This help info"
   exit 0
 fi
@@ -78,9 +78,9 @@ fi
 
 # teh repo
 cd ${REPO_DIR}
-if [ ! -d "vim_stuffs" ]; then
-  echo "Cloning vim_stuffs"
-  git clone https://github.com/zonk1024/vim_stuffs.git 2>/dev/null
+if [ ! -d "vim-configs" ]; then
+  echo "Cloning vim-configs"
+  git clone https://github.com/zonk1024/vim-configs.git 2>/dev/null
 fi
 
 # relink .vimrc
