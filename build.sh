@@ -4,34 +4,59 @@
 REPO_DIR="${REPO_DIR:-code}"
 VIMRC_LINK_TARGET="${REPO_DIR}/vim_stuffs/vimrc"
 
-# update mode
-if [ "$1" == "-u" ]; then
-    cd ~/.vim/
-    for dir in $(find . -name ".git" -type d); do
-	cd $(dirname $dir) && git pull &
-    done
-    wait
-    exit 0
+
+# help
+if [ "$1" == "-h" ]; then
+  echo "$0 [ -u | -c | -h ]"
+  echo "      Normal mode: Creates ~/${REPO_DIR} (can override with \$REPO_DIR env var), clones"
+  echo "                   the repo this lives in as well as ~/.vim and the ~/.vimrc symlink,"
+  echo "                   then clones the dependant repos and colorpack, then finally backs"
+  echo "                   up and links your .vimrc to ~/${REPO_DIR}/vim_stuffs/vimrc"
+  echo "  -u  Update mode: Pulls in each repo it finds under ~/.vim, then runs as normal"
+  echo "  -c  Clean mode : Removes ~/.vim and the ~/.vimrc symlink, then runs as normal"
+  echo "  -h  Help mode  : This help info"
 fi
 
-#for dir in $(for d in $(find . -name ".git" -type d); do dirname $d; done); do cd $dir && git pull & done
+# update mode
+if [ "$1" == "-u" ]; then
+  cd ~/.vim/
+  for dir in $(find . -name ".git" -type d); do
+    pushd $(dirname $dir)
+    git pull &
+    popd
+  done
+  wait
+fi
+
+# clean mode
+if [ "$1" == "-c" ]; then
+  rm -rf ~/.vim
+  rm -f ~/.vimrc
+fi
+
+# dep check
+if ! which wget 2>/dev/null; then
+  echo "Requires wget"
+  exit 1
+fi
 
 # dependencies
 if ! uname -a | grep -q ^Darwin; then
-    for pkg in 'curl' 'git' 'exuberant-ctags'; do
-	if ! dpkg -l | grep -q $pkg; then
-	    sudo apt-get install -y $pkg 
-	fi
-    done
+  for pkg in 'curl' 'git' 'exuberant-ctags'; do
+  if ! dpkg -l | grep -q $pkg; then
+    sudo apt-get install -y $pkg 
+  fi
+  done
 fi
 
 # project dir
+cd ~
 [ ! -d "${REPO_DIR}" ] && mkdir "${REPO_DIR}"
 
 # teh repo
-if [ ! -d "${REPO_DIR}/vim_stuffs" ]; then
-    cd ${REPO_DIR}
-    git clone https://github.com/zonk1024/vim_stuffs.git
+cd ${REPO_DIR}
+if [ ! -d "vim_stuffs" ]; then
+  git clone https://github.com/zonk1024/vim_stuffs.git
 fi
 
 # relink .vimrc
@@ -82,12 +107,12 @@ cd ~/.vim/bundle
 cd ~/.vim
 
 if [ ! -f ColorSamplerPack.zip ]; then
-    echo "Downloading ColorSamplerPack.zip"
-    curl -o ColorSamplerPack.zip 'https://www.vim.org/scripts/download_script.php?src_id=18915' 2>/dev/null >&2
-    if [ $? -ne 0 ]; then
-        echo "FAILED TO DOWNLOAD ColorSamplerPack.zip"
-        exit 1
-    fi
+  echo "Downloading ColorSamplerPack.zip"
+  curl -o ColorSamplerPack.zip 'https://www.vim.org/scripts/download_script.php?src_id=18915' 2>/dev/null >&2
+  if [ $? -ne 0 ]; then
+    echo "FAILED TO DOWNLOAD ColorSamplerPack.zip"
+    exit 1
+  fi
 fi
 
 [ ! -d plugin ] && mkdir plugin
