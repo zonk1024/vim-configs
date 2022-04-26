@@ -12,7 +12,6 @@ if [ -f ~/.vimrc -a ! -L ~/.vimrc ]; then
   exit 1
 fi
 
-
 # help
 if [ "$1" == "-h" ]; then
   echo "$0 [ -u | -c | -h ]"
@@ -57,6 +56,7 @@ if [ "$1" == "-c" ]; then
   rm -rf ~/.vim
   rm -f ~/.vimrc
   echo "All clean"
+  # TODO: add prompt for replacing vimrc too
   exit 0
 fi
 
@@ -81,6 +81,13 @@ cd ${REPO_DIR}
 if [ ! -d "vim-configs" ]; then
   echo "Cloning vim-configs"
   git clone https://github.com/zonk1024/vim-configs.git 2>/dev/null
+fi
+
+cd vim-configs
+if [ ! -f vimrc ]; then
+  cp vimrc.template vimrc
+else
+  echo "Using existing vimrc in project dir"
 fi
 
 # relink .vimrc
